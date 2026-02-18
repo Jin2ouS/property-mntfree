@@ -1,73 +1,53 @@
-# React + TypeScript + Vite
+# property.mntfree
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+포트폴리오 구조 기반 부동산 자산 설계 시스템을 소개하는 랜딩 페이지입니다.
 
-Currently, two official plugins are available:
+- **도메인**: [property.mntfree.com](https://property.mntfree.com)
+- **브랜드**: EVERPRIN · MnTfree
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+투자 수익률을 약속하지 않고, **체계적 자산 구조**, **리스크 관리**, **현금 흐름**, **장기 계획**을 전달합니다.
 
-## React Compiler
+## 스택
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vite.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Lucide React](https://lucide.dev/) (아이콘)
 
-## Expanding the ESLint configuration
+## 로컬 실행
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+브라우저에서 [http://localhost:5173](http://localhost:5173) 으로 확인합니다.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 스크립트
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| 명령어 | 설명 |
+|--------|------|
+| `npm run dev` | 개발 서버 실행 |
+| `npm run build` | 프로덕션 빌드 (`dist/`) |
+| `npm run preview` | 빌드 결과물 로컬 미리보기 |
+| `npm run lint` | ESLint 실행 |
+
+## 배포 (GitHub Pages)
+
+- **저장소**에서 **Settings → Pages** 에서 Source를 **GitHub Actions** 로 설정하면, `main` 브랜치 푸시 시 자동으로 빌드·배포됩니다.
+- 배포 URL: `https://<username>.github.io/property-mntfree/`
+- 커스텀 도메인(property.mntfree.com)을 쓰려면 Pages 설정에서 **Custom domain**에 도메인을 입력하고 DNS(CNAME 또는 A 레코드)만 연결하면 됩니다.
+
+## 프로젝트 구조
+
 ```
+src/
+├── components/     # Hero, AssetsWithIntention, PortfolioFramework, CorePrinciples, Closing
+├── App.tsx
+├── main.tsx
+└── index.css
+```
+
+## 라이선스
+
+Private · EVERPRIN
