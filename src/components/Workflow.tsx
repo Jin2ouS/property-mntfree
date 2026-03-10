@@ -1,40 +1,35 @@
 const steps = [
   {
-    id: 'goal',
-    title: 'Goal Definition',
-    description: '목표와 제약을 명확히 정의합니다.',
+    id: 'discover',
+    title: 'Discover',
+    description: '경매·공매 물건을 탐색하고 투자 후보를 발굴합니다.',
   },
   {
-    id: 'screening',
-    title: 'Asset Screening',
-    description: '구조적 기준에 맞는 자산을 선별합니다.',
+    id: 'analyze',
+    title: 'Analyze',
+    description: '권리분석, 시세, 수익 구조를 수치 기반으로 검토합니다.',
   },
   {
-    id: 'cashflow',
-    title: 'Cash Flow Analysis',
-    description: '현금 흐름을 수치로 분석합니다.',
+    id: 'bid',
+    title: 'Bid',
+    description: '입찰 전략을 수립하고 실행합니다.',
   },
   {
-    id: 'risk',
-    title: 'Risk Rules',
-    description: '리스크 한도와 규칙을 설정합니다.',
-  },
-  {
-    id: 'monitoring',
-    title: 'Monitoring',
-    description: '계획 대비 추적과 조정을 수행합니다.',
+    id: 'exit',
+    title: 'Renovate / Exit',
+    description: '보수·임대·매도 등 목표에 맞는 정리 단계를 수행합니다.',
   },
 ];
 
-export function PortfolioFramework() {
+export function Workflow() {
   return (
-    <section id="framework" className="py-20 sm:py-28 bg-navy">
+    <section id="workflow" className="py-20 sm:py-28 bg-navy">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl sm:text-4xl font-semibold text-white text-center">
-          Portfolio Framework
+          Workflow
         </h2>
         <p className="mt-4 text-warmgray-light text-center max-w-2xl mx-auto">
-          프로세스 기반의 자산 설계 흐름입니다.
+          투자 흐름을 한눈에 이해할 수 있는 구조화된 프로세스입니다.
         </p>
 
         {/* Desktop: horizontal flow with arrows */}

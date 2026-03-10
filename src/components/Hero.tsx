@@ -17,25 +17,25 @@ export function Hero() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white tracking-tight max-w-4xl mx-auto leading-tight">
-          Design Your Assets with Structure.
+          부동산 경매와 투자 판단을 위한
           <br />
-          <span className="text-warmgray-light font-medium">Not Speculation.</span>
+          <span className="text-amber-accent">구조화된 시스템</span>
         </h1>
         <p className="mt-6 text-lg sm:text-xl text-warmgray-light max-w-2xl mx-auto">
-          A systemized approach to property portfolio, built for long-term resilience.
+          경매 물건 탐색, 입찰 전 분석, 수익 구조 검토, 매도 전략까지. 판단을 위한 도구와 흐름을 제공합니다.
         </p>
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="#framework"
+            href="#workflow"
             className="inline-flex items-center justify-center px-6 py-3 rounded-md bg-amber-accent text-white font-medium hover:bg-amber-hover transition-colors"
           >
-            Explore Framework
+            서비스 흐름 보기
           </a>
           <a
-            href="#how-it-works"
+            href="#what-we-do"
             className="inline-flex items-center justify-center px-6 py-3 rounded-md border border-warmgray text-warmgray-light font-medium hover:border-warmgray-light hover:text-white transition-colors"
           >
-            How It Works
+            무엇을 하는지 보기
           </a>
         </div>
       </div>

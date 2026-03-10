@@ -11,12 +11,29 @@ export function Closing() {
             <br />
             We design systems, not predictions.
           </p>
+          <p className="mt-8 text-sm text-warmgray">
+            Built by MnTfree · Structured with the mindset of Everprin
+          </p>
+          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="#workflow"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-md bg-amber-accent text-white font-medium hover:bg-amber-hover transition-colors"
+            >
+              서비스 흐름 보기
+            </a>
+            <a
+              href="#what-we-do"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-md border border-warmgray text-warmgray-light font-medium hover:border-warmgray-light hover:text-white transition-colors"
+            >
+              도구 살펴보기
+            </a>
+          </div>
         </div>
       </section>
       <footer className="py-8 border-t border-warmgray/30 bg-navy">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm text-warmgray">
-            property.mntfree.com by EVERPRIN
+            property.mntfree.com · MnTfree · Everprin
           </p>
         </div>
       </footer>

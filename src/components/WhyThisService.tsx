@@ -1,19 +1,19 @@
 const principles = [
-  '장기 현금 흐름 위주 설계',
-  '리스크 한도 설정',
-  '구조적 분산',
-  '계획 대비 추적',
+  '감이 아니라 구조로 판단합니다. 수치와 체크리스트 기반의 투자 검토.',
+  '반복 가능한 투자 프로세스를 설계합니다. 한 번 쓴 흐름은 계속 활용합니다.',
+  '실무형 체크리스트와 분석 도구로 누락 없이 점검합니다.',
+  '시간을 아끼는 리서치 흐름을 제공합니다. 불필요한 반복 작업을 줄입니다.',
 ];
 
-export function CorePrinciples() {
+export function WhyThisService() {
   return (
     <section className="py-20 sm:py-28 bg-navy-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl sm:text-4xl font-semibold text-white text-center">
-          Core Principles
+          Why This Service
         </h2>
         <p className="mt-4 text-warmgray-light text-center max-w-2xl mx-auto">
-          시스템이 지향하는 핵심 원칙입니다.
+          이 서비스를 선택해야 하는 이유입니다.
         </p>
         <ul className="mt-16 max-w-2xl mx-auto space-y-5">
           {principles.map((text, index) => (

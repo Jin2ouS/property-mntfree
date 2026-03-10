@@ -1,7 +1,8 @@
 import { Hero } from './components/Hero'
-import { AssetsWithIntention } from './components/AssetsWithIntention'
-import { PortfolioFramework } from './components/PortfolioFramework'
-import { CorePrinciples } from './components/CorePrinciples'
+import { WhatWeDo } from './components/WhatWeDo'
+import { Workflow } from './components/Workflow'
+import { WhyThisService } from './components/WhyThisService'
+import { WhatWeOffer } from './components/WhatWeOffer'
 import { Closing } from './components/Closing'
 
 function App() {
@@ -9,9 +10,10 @@ function App() {
     <>
       <Hero />
       <main>
-        <AssetsWithIntention />
-        <PortfolioFramework />
-        <CorePrinciples />
+        <WhatWeDo />
+        <Workflow />
+        <WhyThisService />
+        <WhatWeOffer />
         <Closing />
       </main>
     </>
