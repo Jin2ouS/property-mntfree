@@ -14,31 +14,42 @@ const TOTAL_SEARCH_URL = `${GGI_BASE}/search/total_search.asp`
 
 /**
  * 로그인 시도
- * 실제 로그인 폼 selector는 ggi.co.kr 페이지에 맞게 조정 필요
+ * ggi.co.kr 로그인은 pop_login.asp 팝업에서 진행
  */
 async function login(page, { id: ggiId, pw: ggiPw }) {
-  await page.goto(GGI_BASE, { waitUntil: 'domcontentloaded', timeout: 30000 })
+  const loginUrl = `${GGI_BASE}/login/pop_login.asp`
+  await page.goto(loginUrl, { waitUntil: 'domcontentloaded', timeout: 30000 })
   await page.waitForLoadState('networkidle').catch(() => {})
+  await page.waitForTimeout(1500)
 
-  // 로그인 링크 클릭 (로그인 팝업 또는 별도 페이지)
-  const loginLink = page.locator('a[href*="login"], a:has-text("로그인"), .login-btn').first()
-  if (await loginLink.isVisible().catch(() => false)) {
-    await loginLink.click()
-    await page.waitForTimeout(1000)
-  }
+  // 로그인 폼 - 다양한 selector 시도 (팝업 페이지 구조)
+  const selectors = [
+    'input[name="user_id"], input[name="member_id"], input[id="user_id"], input[id="userid"]',
+    'input[name="user_pw"], input[name="member_pw"], input[id="user_pw"], input[id="userpw"], input[type="password"]'
+  ]
+  const idInput = page.locator(selectors[0]).first()
+  const pwInput = page.locator(selectors[1]).first()
 
-  // 로그인 폼 - ggi.co.kr 실제 name/id 확인 후 수정
-  const idInput = page.locator('input[name="user_id"], input[name="member_id"], input[id*="id"], input[id*="user"]').first()
-  const pwInput = page.locator('input[name="user_pw"], input[name="member_pw"], input[type="password"]').first()
+  const idVisible = await idInput.isVisible().catch(() => false)
+  const pwVisible = await pwInput.isVisible().catch(() => false)
 
-  if (await idInput.isVisible().catch(() => false) && await pwInput.isVisible().catch(() => false)) {
+  if (idVisible && pwVisible) {
     await idInput.fill(ggiId)
     await pwInput.fill(ggiPw)
-    await page.locator('button[type="submit"], input[type="submit"], .btn-login, a:has-text("로그인")').first().click()
-    await page.waitForTimeout(2000)
   } else {
-    throw new Error('로그인 폼을 찾을 수 없습니다. ggi.co.kr 페이지 구조가 변경되었을 수 있습니다.')
+    const anyId = page.locator('input[type="text"]:not([type="hidden"])').first()
+    const anyPw = page.locator('input[type="password"]').first()
+    if (await anyId.isVisible().catch(() => false) && await anyPw.isVisible().catch(() => false)) {
+      await anyId.fill(ggiId)
+      await anyPw.fill(ggiPw)
+    } else {
+      throw new Error('로그인 폼을 찾을 수 없습니다. ggi.co.kr 페이지 구조가 변경되었을 수 있습니다.')
+    }
   }
+
+  const submitBtn = page.locator('button[type="submit"], input[type="submit"], input[type="image"], a:has-text("로그인"), .btn_login').first()
+  await submitBtn.click().catch(() => page.keyboard.press('Enter'))
+  await page.waitForTimeout(2500)
 }
 
 /**
