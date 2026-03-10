@@ -10,8 +10,9 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-# 서버 의존성
+# 서버 의존성 (better-sqlite3 네이티브 빌드용)
 WORKDIR /app/server
+RUN apt-get update && apt-get install -y build-essential python3 && rm -rf /var/lib/apt/lists/*
 RUN npm ci --omit=dev
 
 # 실행
