@@ -1,22 +1,13 @@
-import { Hero } from './components/Hero'
-import { WhatWeDo } from './components/WhatWeDo'
-import { Workflow } from './components/Workflow'
-import { WhyThisService } from './components/WhyThisService'
-import { WhatWeOffer } from './components/WhatWeOffer'
-import { Closing } from './components/Closing'
+import { Routes, Route } from 'react-router-dom'
+import { LandingPage } from './pages/LandingPage'
+import { ManagePage } from './pages/ManagePage'
 
 function App() {
   return (
-    <>
-      <Hero />
-      <main>
-        <WhatWeDo />
-        <Workflow />
-        <WhyThisService />
-        <WhatWeOffer />
-        <Closing />
-      </main>
-    </>
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/manage" element={<ManagePage />} />
+    </Routes>
   )
 }
 
