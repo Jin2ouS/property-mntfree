@@ -1,5 +1,7 @@
 import express from 'express'
 import cors from 'cors'
+import { dirname, join } from 'path'
+import { fileURLToPath } from 'url'
 import 'dotenv/config'
 import { getDb, listProperties, listFavorites } from './db/schema.js'
 import { runCrawl } from './crawler/ggi.js'
@@ -63,6 +65,13 @@ app.post('/api/crawl', async (_, res) => {
 
 // 서버 시작 시 DB 초기화
 getDb()
+
+// production: 정적 파일 + SPA fallback
+if (process.env.NODE_ENV === 'production') {
+  const __dirname = dirname(fileURLToPath(import.meta.url))
+  app.use(express.static(join(__dirname, '..', 'dist')))
+  app.get('*', (_, res) => res.sendFile(join(__dirname, '..', 'dist', 'index.html')))
+}
 
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`)
